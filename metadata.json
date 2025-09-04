@@ -1,0 +1,5 @@
+{
+  "name": "Tez Lab",
+  "description": "An interactive, aesthetically clean single-page application to visualize NFT collections from the Tezos blockchain, interacting directly with the TzKT API.",
+  "requestFramePermissions": []
+}

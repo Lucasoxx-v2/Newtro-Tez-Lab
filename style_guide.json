@@ -1,0 +1,127 @@
+{
+  "styleGuideName": "Tez Lab Aesthetic",
+  "description": "A style guide derived from the Tez Lab application to facilitate the prototyping of new developments with a similar visual identity.",
+  "colors": {
+    "primary": {
+      "accent": "#bcfe04",
+      "background": "#121212",
+      "surface": "#1a1a1a"
+    },
+    "text": {
+      "primary": "#f3f4f6",
+      "secondary": "#9ca3af",
+      "tertiary": "#6b7281",
+      "onAccent": "#121212"
+    },
+    "ui": {
+      "border": "#374151",
+      "focusRing": "rgba(188, 254, 4, 0.5)",
+      "disabled": "#6b7281"
+    },
+    "feedback": {
+      "error": "#f87171",
+      "errorBackground": "rgba(153, 27, 27, 0.2)"
+    },
+    "blockchain": {
+      "tezos": "#d1f121",
+      "evm": "#485de4",
+      "solana": "#470f4f"
+    }
+  },
+  "typography": {
+    "fontFamily": "Inter, sans-serif",
+    "baseFontSize": "16px",
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem"
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    }
+  },
+  "layout": {
+    "spacingUnit": "4px",
+    "containerPadding": "1rem",
+    "borderRadius": {
+      "sm": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "full": "9999px"
+    }
+  },
+  "components": {
+    "button": {
+      "background": "colors.primary.accent",
+      "textColor": "colors.text.onAccent",
+      "fontWeight": "typography.weights.semibold",
+      "padding": "0.5rem 1rem",
+      "borderRadius": "layout.borderRadius.md",
+      "hover": {
+        "opacity": 0.8
+      },
+      "focus": {
+        "boxShadow": "0 0 0 2px var(colors.primary.background), 0 0 0 4px var(colors.primary.accent)"
+      },
+      "disabled": {
+        "background": "colors.ui.disabled"
+      }
+    },
+    "input": {
+      "background": "colors.primary.surface",
+      "border": "1px solid colors.ui.border",
+      "textColor": "colors.text.primary",
+      "placeholderColor": "colors.text.secondary",
+      "borderRadius": "layout.borderRadius.lg",
+      "padding": "0.625rem",
+      "focus": {
+        "borderColor": "colors.primary.accent",
+        "boxShadow": "0 0 0 1px var(colors.primary.accent)"
+      }
+    },
+    "card": {
+      "background": "colors.primary.surface",
+      "border": "1px solid colors.ui.border",
+      "borderRadius": "layout.borderRadius.lg",
+      "hover": {
+        "borderColor": "colors.primary.accent",
+        "boxShadow": "0 10px 15px -3px rgba(188, 254, 4, 0.07), 0 4px 6px -2px rgba(188, 254, 4, 0.05)"
+      }
+    },
+    "modal": {
+      "overlayBackground": "rgba(18, 18, 18, 0.9)",
+      "backdropFilter": "blur(8px)"
+    }
+  },
+  "animation": {
+    "fadeIn": {
+      "duration": "0.5s",
+      "timingFunction": "ease-in-out",
+      "keyframes": {
+        "from": { "opacity": 0 },
+        "to": { "opacity": 1 }
+      }
+    },
+    "progress": {
+      "duration": "7s",
+      "timingFunction": "linear"
+    },
+    "spin": {
+       "duration": "1s",
+       "timingFunction": "linear",
+       "iterationCount": "infinite"
+    },
+    "defaultTransition": {
+      "duration": "0.2s",
+      "timingFunction": "ease-in-out"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "appName": "Tez Lab",
+  "description": "A curated collection of data points used within the Tez Lab application, including contract addresses, tutorial videos, and relevant links.",
+  "curatedCollections": {
+    "newtroCollectiveDrops": {
+      "name": "Newtro Collective Drops",
+      "description": "A series of curated drops from the Newtro Arts Collective. Aliases and descriptions for these are fetched dynamically at runtime.",
+      "contracts": [
+        "KT1SnjkFfEjcJDAHXrj8GoLq174ZNjyKbXgG",
+        "KT1Muk6E8Ma2nkZJjseFzp172aoCHr9frsjh",
+        "KT1C2rNotE5J4Db59CttRVim3JNR8jG5D9Jg",
+        "KT1WiA72WSP5pCzVjEqhW2GRhBU3q5yRcHQf",
+        "KT1Ro7fyAmAiLmLignzzCeT9Q25UMgh9pWkf",
+        "KT1J8M5XSf7neu3efyuQ9aywPXDuChWnMNLX",
+        "KT1QAty51CrHwSPQMs1fafHdYGLHK3Z7bsSG",
+        "KT1CngY7393gtBsE4Ynk3cGm1Mov55Z2aNo9",
+        "KT1VBCWocKcFbQEgtN9ioN5AwyWXGgdwsjDt"
+      ]
+    }
+  },
+  "specialProjects": [
+    {
+      "name": "ARCHITYPES Composer",
+      "description": "A collaborative project from Kristen Ross and Kerim Safa, allowing users to compose words with a living alphabet of NFTs.",
+      "contractAddress": "KT1J7jm7weHeTCGyb3q2smVgkbpsftyqHXQx"
+    }
+  ],
+  "tutorials": {
+    "playlist": [
+      { "youtubeId": "I7_NW0aFnBA", "title": "Cómo crear tu wallet en Coinbase", "category": "EVM" },
+      { "youtubeId": "-S5LwV1EMQM", "title": "Cómo registrar tu Basename", "category": "EVM" },
+      { "youtubeId": "hT-Iqaxucjs", "title": "Cómo crear tu wallet Kukai de Tezos", "category": "Tezos" },
+      { "youtubeId": "PrtIFx-xwOc", "title": "Cómo crear tu wallet Rainbow EVM", "category": "EVM" },
+      { "youtubeId": "w1UMhZMxghI", "title": "Cómo hacer swap y bridge con Rainbow", "category": "EVM" },
+      { "youtubeId": "o2mcpSUU9PQ", "title": "Cómo crear un perfil en OBJKT.com", "category": "Tezos" },
+      { "youtubeId": "ufKk5hQy5wE", "title": "Cómo mintear en OBJKT.com", "category": "Tezos" },
+      { "youtubeId": "lpGQXro2ykw", "title": "Cómo crear tu wallet Phantom de Solana", "category": "Solana" },
+      { "youtubeId": "5FGvQreFWq0", "title": "Cómo crear tu wallet Temple de Tezos", "category": "Tezos" },
+      { "youtubeId": "_jBs7h_bNMU", "title": "Cómo adquirir un Tezos Domain", "category": "Tezos" }
+    ]
+  },
+  "referencedLinks": {
+    "newtroGallery": "https://objkt.com/profile/newtroarts",
+    "tzkt": "https://tzkt.io/",
+    "objkt": "https://objkt.com/"
+  },
+  "developerInfo": {
+    "apiEndpoints": {
+      "tzkt": "https://api.tzkt.io/v1",
+      "objkt": "https://data.objkt.com/v3/graphql"
+    },
+    "ipfsGateways": [
+      "https://dweb.link/ipfs/",
+      "https://gateway.pinata.cloud/ipfs/",
+      "https://cloudflare-ipfs.com/ipfs/"
+    ]
+  }
+}

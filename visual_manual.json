@@ -1,0 +1,126 @@
+{
+  "manualTitle": "Visual & Functional Manual for Tez Lab",
+  "introduction": "This document serves as a detailed visual and functional guide to the Tez Lab web application. It is designed to be a blueprint for designers and developers to replicate the application's aesthetic and user experience using technology-agnostic descriptions, suitable for implementation in pure CSS and vanilla JavaScript. It avoids implementation-specific terms (like React components or Tailwind classes) and focuses on the final appearance and behavior.",
+  "visualIdentity": {
+    "overallAesthetic": "The application employs a modern, clean, and dark-themed aesthetic. The design is minimalist, prioritizing content and imagery over ornamental UI. High-contrast is achieved through a vibrant, neon-lime accent color set against a deep charcoal and black background, creating a 'cyber' or 'tech-noir' feel. The overall impression is professional, sophisticated, and focused.",
+    "colorPalette": {
+      "backgroundPrimary": {
+        "value": "#121212",
+        "description": "The base background color for the entire application. A near-black, deep charcoal that minimizes eye strain."
+      },
+      "backgroundSecondary": {
+        "value": "#1a1a1a",
+        "description": "A slightly lighter charcoal used for surfaces like cards, input fields, and info blocks to create subtle depth."
+      },
+      "accent": {
+        "value": "#bcfe04",
+        "description": "A vibrant, neon lime-green. Used for primary calls-to-action (buttons), active states, focus indicators, and key highlights to draw user attention."
+      },
+      "textPrimary": {
+        "value": "#f3f4f6",
+        "description": "An off-white, light gray used for all primary body text and headings for high readability against the dark background."
+      },
+      "textSecondary": {
+        "value": "#9ca3af",
+        "description": "A muted, medium gray for secondary information, subtitles, and placeholder text."
+      },
+      "textOnAccent": {
+        "value": "#121212",
+        "description": "The dark charcoal color used for text placed on top of the accent color (e.g., button labels) to ensure contrast."
+      },
+      "border": {
+        "value": "#374151",
+        "description": "A subtle, dark gray used for borders on components like info blocks and input fields."
+      }
+    },
+    "typography": {
+      "fontFamily": "'Inter', sans-serif",
+      "description": "The entire UI uses the 'Inter' typeface, a clean and highly legible sans-serif font suitable for user interfaces. A system font fallback is provided.",
+      "weights": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "scale": {
+        "headings": "Headings are bold (700 weight) and range from large (approx. 2.25rem) for main section titles to medium (approx. 1.5rem) for content blocks.",
+        "body": "Standard body text is regular weight (400) at a comfortable size (approx. 1rem).",
+        "labels": "Button labels and navigation items are medium weight (500) to give them slight emphasis."
+      }
+    },
+    "layoutAndSpacing": {
+      "gridSystem": "The main content area is centered within the viewport with a maximum width that expands for larger screens. Content within sections, particularly NFT and artist grids, is organized in a responsive grid that adjusts the number of columns based on screen width (e.g., 2 columns on mobile, up to 6 on extra-large desktops).",
+      "spacing": "A consistent spacing scale (based on multiples of 4px) is used for padding, margins, and gaps between elements, creating a harmonious and balanced layout.",
+      "borderRadius": "Most elements like cards, buttons, and inputs have moderately rounded corners (approx. 8px), contributing to a soft and modern look."
+    }
+  },
+  "componentStyles": {
+    "header": {
+      "description": "A sticky header that remains fixed at the top of the viewport. It has a semi-transparent, dark background with a backdrop blur effect, allowing content to be subtly visible as it scrolls underneath. It contains the site logo/title on the left and the main navigation on the right.",
+      "navigation": "Navigation consists of a set of buttons within a rounded container. The active view's button is highlighted with the solid accent color and dark text. Inactive buttons are transparent with light text, changing to a slightly darker background on hover."
+    },
+    "buttons": {
+      "primary": "The main action button (e.g., 'Explore') has a solid accent color background, dark text, and rounded corners. On hover, its opacity slightly decreases. In a disabled state, it appears in a muted gray color with a 'not-allowed' cursor.",
+      "secondary/Filter": "These buttons (e.g., collection filters) have a dark secondary background, a subtle border, and light text. On hover, the border color changes to the accent color. The selected/active filter button adopts the style of a primary button."
+    },
+    "inputFields": {
+      "description": "Text input fields have a dark secondary background, a subtle border, and light gray text. The placeholder text is a slightly darker gray. When focused, the border color changes to the accent color and a soft glow of the same color appears around the field."
+    },
+    "nftCard": {
+      "description": "A square card with rounded corners. The NFT image fills the entire card and has a slight zoom-in effect on hover. An overlay gradient (from black at the bottom to transparent at the top) appears on hover, along with the NFT's name in white text at the bottom.",
+      "loadingState": "While the image is loading, a simple, dashed-border spinner is shown in the center. If the image fails to load, this is replaced by an error icon."
+    },
+    "artistCard": {
+      "description": "A redesigned, visually-driven square card. The artist's profile picture serves as the full-bleed background of the card. On hover, the image subtly zooms in.",
+      "overlay": "An overlay appears only on hover. It's a dark gradient from the bottom, containing the artist's alias (bold, white), their shortened address (monospace, gray), and clickable icons for their social media profiles (Objkt, Twitter, etc.). The entire card is clickable to view the artist's works."
+    }
+  },
+  "sectionBreakdown": {
+    "collectionExplorer": {
+      "purpose": "A universal tool for any user to visualize an entire NFT collection by providing its Tezos contract address.",
+      "layoutAndFlow": "Features a prominent title, a descriptive subtitle, a single input field for the contract address, and an 'Explore' button. Upon submission, a loader appears. On success, an information block with collection details is shown, followed by a grid of all NFTs in that collection.",
+      "contractsUsed": "User-provided. Any valid Tezos FA2 contract address (starts with 'KT1...')."
+    },
+    "collectiveDrops": {
+      "purpose": "A curated gallery showcasing specific NFT collections released by the Newtro Arts Collective.",
+      "layoutAndFlow": "Displays a set of filter buttons at the top, each labeled with a collection name. Clicking a button loads the corresponding collection below, showing its info block and NFT grid. The layout is similar to the explorer but is driven by pre-selected contracts.",
+      "contractsUsed": [
+        "KT1SnjkFfEjcJDAHXrj8GoLq174ZNjyKbXgG (NEWTRO S.E.E.D.)",
+        "KT1Muk6E8Ma2nkZJjseFzp172aoCHr9frsjh (Onboarding Drop)",
+        "KT1C2rNotE5J4Db59CttRVim3JNR8jG5D9Jg (Newtro Arts Fair)",
+        "...and others from the curated list."
+      ]
+    },
+    "newtroIndex": {
+      "purpose": "A directory to discover and explore the artists who are part of the Newtro Collective.",
+      "layoutAndFlow": "After a brief loading state, the section displays a responsive grid of Artist Cards. Each card represents one artist. Clicking a card opens the Modal Viewer, pre-loaded with that artist's recent works.",
+      "functionality": "The list of artists is dynamically aggregated by fetching all creators from the curated collections in 'Collective Drops'."
+    },
+    "experiments_ArchitypesComposer": {
+      "purpose": "An interactive, creative tool that allows users to 'write' with NFTs, turning text into a unique piece of typographic art.",
+      "layoutAndFlow": "The section has a descriptive block explaining the 'Architypes' project. Below this is a text input field and a 'Compose' button. When text is entered and composed, a visual representation of the word appears below, with each character rendered as its corresponding animated NFT. An option to export the composition as a PNG or GIF is provided.",
+      "contractsUsed": "KT1J7jm7weHeTCGyb3q2smVgkbpsftyqHXQx (ARCHITYPES by Kristen Ross & Kerim Safa)"
+    },
+    "onboarding_Tutorials": {
+      "purpose": "A resource hub for newcomers, providing essential video tutorials on crypto basics.",
+      "layoutAndFlow": "Presents a simple, two-column list of buttons. Each button is labeled with a tutorial title (e.g., 'How to create a Kukai wallet'). The buttons are color-coded based on their blockchain category (Tezos, EVM, Solana). Clicking a button opens the corresponding YouTube video in a modal player.",
+      "content": "A curated playlist of YouTube videos covering wallet creation, domain purchasing, and platform usage."
+    }
+  },
+  "modalViewerExperience": {
+    "purpose": "To provide an immersive, distraction-free environment for viewing individual artworks or browsing an artist's portfolio.",
+    "visualAppearance": "When opened, it presents a full-screen, semi-transparent black overlay with a backdrop blur. The artwork is displayed centrally, scaled to fit within the viewport while maintaining its aspect ratio. The UI is minimal and designed to fade away.",
+    "uiElements": {
+      "navigation": "Large, semi-transparent arrow buttons appear on the left and right edges of the screen for navigating between pieces. These are only visible on hover or during user activity.",
+      "closeButton": "A clear 'X' icon is always visible in the top-right corner.",
+      "infoPanel": "In the bottom-right, the NFT's name and creator are displayed in white text with a subtle text shadow for readability. This panel is persistently visible.",
+      "controlsPanel": "In the bottom-left, a panel containing controls like 'Auto-Slide' and interval settings appears. This panel, along with the navigation arrows, fades out after a few seconds of inactivity."
+    },
+    "userInteractionAndExperience": {
+      "autoHidingUI": "To focus on the art, all controls except the close button and info panel fade out after 3 seconds of mouse inactivity. They reappear instantly on mouse movement.",
+      "keyboardNavigation": "Users can navigate with the left/right arrow keys and close the modal with the 'Escape' key.",
+      "zoom": "On non-video pieces, users can double-click or use the mouse wheel to zoom in and pan around the artwork for detailed inspection.",
+      "transitions": "When navigating between artworks, there is a subtle and quick cross-fade transition to ensure a smooth viewing experience."
+    }
+  }
+}
