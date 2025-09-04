@@ -5,9 +5,17 @@ import Loader from './Loader';
 import { Button } from './ui/Button';
 import { Input } from './ui/Input';
 import { Switch } from './ui/Switch';
-// @ts-ignore - This will be imported from a CDN at runtime
-import { GIFEncoder, quantize, applyPalette } from 'https://cdn.jsdelivr.net/npm/gifenc@1.0.3/dist/gifenc.esm.js';
 
+// Add type declarations for the gifenc library loaded from the script tag in index.html
+declare global {
+  interface Window {
+    gifenc?: {
+      GIFEncoder: any;
+      quantize: any;
+      applyPalette: any;
+    };
+  }
+}
 
 const ARCHITYPES_CONTRACT = 'KT1J7jm7weHeTCGyb3q2smVgkbpsftyqHXQx';
 
@@ -20,7 +28,6 @@ const ComposedWord: React.FC<{ nfts: (Nft | string)[] }> = ({ nfts }) => {
                 }
                 return (
                     <div key={item.id} className="w-24 h-24 rounded-md overflow-hidden bg-gray-800 flex-shrink-0">
-                        {/* FIX: The `imageUrl` property is an array of strings. Select the first URL for the src attribute. */}
                         {item.imageUrl && <img src={item.imageUrl[0]} alt={item.name} className="w-full h-full object-cover" />}
                     </div>
                 );
@@ -48,7 +55,6 @@ const Architypes: React.FC = () => {
         
         const backgroundNft = tokens.find(token => token.tokenId === '10');
         if (backgroundNft && backgroundNft.displayUrl) {
-          // FIX: The `displayUrl` property is an array of strings. Select the first URL.
           setBackgroundVideoUrl(backgroundNft.displayUrl[0]);
         }
 
@@ -92,6 +98,7 @@ const Architypes: React.FC = () => {
   const handleExport = async () => {
     if (!composedNfts || !canvasRef.current || isExporting) return;
     setIsExporting(true);
+    setError(null);
     
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -105,11 +112,14 @@ const Architypes: React.FC = () => {
       if (exportFormat === 'PNG') {
         await exportAsPng(canvas, ctx, composedNfts, inputText);
       } else {
+        if (!window.gifenc) {
+          throw new Error("GIF library failed to load. Please check your connection and refresh.");
+        }
         await exportAsGif(canvas, ctx, composedNfts, inputText);
       }
     } catch (err) {
       console.error("Export failed:", err);
-      setError("An error occurred during export.");
+      setError(err instanceof Error ? err.message : "An error occurred during export.");
     } finally {
       setIsExporting(false);
     }
@@ -211,7 +221,6 @@ const preloadImages = (composedNfts: (Nft | string)[]) => {
         if (!item.imageUrl) return resolve('error');
         const img = new Image();
         img.crossOrigin = 'anonymous';
-        // FIX: The `imageUrl` property is an array of strings. Select the first URL for the src attribute.
         img.src = item.imageUrl[0];
         img.onload = () => resolve(img);
         img.onerror = () => resolve('error');
@@ -248,6 +257,7 @@ const exportAsPng = async (canvas: HTMLCanvasElement, ctx: CanvasRenderingContex
 };
 
 const exportAsGif = async (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, composedNfts: (Nft | string)[], inputText: string) => {
+    const { GIFEncoder, quantize, applyPalette } = window.gifenc!;
     const nftSize = 128;
     const delay = 400;
     const finalFrameDelay = 2000;
