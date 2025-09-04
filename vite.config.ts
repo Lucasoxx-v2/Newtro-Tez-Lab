@@ -14,5 +14,12 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       }
+    build: {
+        rollupOptions: {
+          output: {
+            assetFileNames: 'assets/[name]-[hash].[ext]',
+          },
+        },
+      },
     };
 });
